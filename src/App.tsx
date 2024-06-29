@@ -1,0 +1,45 @@
+import { useEffect, useState } from "react";
+import { Layer, LayerImage } from "@/types";
+import services from "@/utils/services";
+import Neko from "@/pages/neko";
+import Ctabs from "@/pages/tabs";
+import "@/App.css";
+import Layout from "./pages/layout";
+
+function App() {
+  const [layerComb, setLayerComb] = useState<LayerImage[]>();
+  const [orderedLayers, setOrderedLayers] = useState<Layer[]>();
+
+  useEffect(() => {
+    const savedComb = JSON.parse(localStorage.getItem("layerComb") || "null");
+
+    if (!savedComb) {
+      services.getDefaultCombination().then((res) => {
+        setLayerComb(res);
+      });
+    } else {
+      setLayerComb(savedComb);
+    }
+
+    services.getOrderedLayers().then((res) => {
+      setOrderedLayers(res);
+    });
+  }, []);
+
+  return (
+    <Layout>
+      <Neko
+        layerComb={layerComb}
+        setLayerComb={setLayerComb}
+        orderedLayers={undefined}
+      />
+      <Ctabs
+        orderedLayers={orderedLayers}
+        layerComb={layerComb}
+        setLayerComb={setLayerComb}
+      />
+    </Layout>
+  );
+}
+
+export default App;
