@@ -14,7 +14,7 @@
     "build-static": "node scripts/generateImgs.js && node scripts/downloadImgs.js"
   },
   "dependencies": {
-    "ag-psd": "^20.1.2",
+    "ag-psd": "^21.0.0",
     "antd": "^5.18.3",
     "axios": "^1.7.2",
     "file-saver": "^2.0.5",
