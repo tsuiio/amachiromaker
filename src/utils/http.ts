@@ -58,7 +58,6 @@ export function del<T>(url: string, data: object = {}) {
   });
 }
 
-// eslint-disable-next-line
 export default {
   get,
   post,

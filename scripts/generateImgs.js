@@ -22,7 +22,7 @@ const imgList = JSON.parse(
   })
 );
 
-let imgUrls = [];
+const imgUrls = [];
 
 imgList.forEach((imgPath) => {
   imgUrls.push(`${cdnPrefix}${imgPath}`);

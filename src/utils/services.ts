@@ -9,7 +9,6 @@ const getOrderedLayers = () => {
   return http.get<Layer[]>("orderedLayers.json");
 };
 
-// eslint-disable-next-line
 export default {
   getDefaultCombination,
   getOrderedLayers,
