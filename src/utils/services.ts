@@ -1,5 +1,5 @@
 import http from "./http";
-import { Layer, LayerImage } from "../types";
+import { Layer, LayerImage } from "@/types";
 
 const getDefaultCombination = () => {
   return http.get<LayerImage[]>("defaultCombination.json");

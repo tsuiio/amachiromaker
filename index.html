@@ -6,11 +6,45 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>amachiromaker</title>
+  <style>
+    .fullscreen-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background-color: #fffffff6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="fullscreenLoader" class="fullscreen-loader">
+    <img id="kanoGif" src="/src/assets/kano.gif" alt="Loading..." />
+  </div>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
+<script>
+  function restartGif(imgElement) {
+    let element = document.getElementById(imgElement);
+    if (element) {
+      var imgSrc = element.src;
+      element.src = imgSrc;
+    }
+  }
+
+  restartGif("kanoGif");
+</script>
 
 </html>

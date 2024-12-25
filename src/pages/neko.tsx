@@ -17,9 +17,15 @@ interface NekoProps {
   orderedLayers: Layer[] | undefined;
   layerComb: LayerImage[] | undefined;
   setLayerComb: Dispatch<SetStateAction<LayerImage[] | undefined>>;
+  setLoadingCount: Dispatch<SetStateAction<number>>;
 }
 
-const Neko = ({ orderedLayers, layerComb, setLayerComb }: NekoProps) => {
+const Neko = ({
+  orderedLayers,
+  layerComb,
+  setLayerComb,
+  setLoadingCount,
+}: NekoProps) => {
   const [outputImage, setOutputImage] = useState<string>();
   const [outputImageDimension, setOutputImageDimension] = useState<number>();
   const { width, height } = useWindowDimensions();
@@ -140,13 +146,21 @@ const Neko = ({ orderedLayers, layerComb, setLayerComb }: NekoProps) => {
     });
   }, [layerComb]);
 
+  const outputImg = outputImage?.startsWith("data:image/png;base64,");
+
+  useEffect(() => {
+    if (outputImg) {
+      setLoadingCount((c) => c - 1);
+    }
+  }, [outputImg, setLoadingCount]);
+
   return (
     <div
       className={`${
         width > height ? "flex-1" : ""
       } flex flex-col items-center text-center p-3`}
     >
-      {outputImage?.startsWith("data:image/png;base64,") ? (
+      {outputImg && (
         <>
           <img
             className="rounded-2xl border-[#555] border-[3px] border-solid"
@@ -219,16 +233,6 @@ const Neko = ({ orderedLayers, layerComb, setLayerComb }: NekoProps) => {
             </button>
           </div>
         </>
-      ) : (
-        <div
-          className="rounded-2xl border-solid border-[#555] flex flex-col text-center items-center justify-center text-gray-500"
-          style={{
-            width: outputImageDimension,
-            height: outputImageDimension,
-          }}
-        >
-          loading...
-        </div>
       )}
     </div>
   );

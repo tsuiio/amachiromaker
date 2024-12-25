@@ -169,15 +169,27 @@ const Ctabs = ({ orderedLayers, layerComb, setLayerComb }: CtabsProps) => {
         },
       }}
     >
-      <div className={`${width > height ? "w-[60%]" : "w-screen"} h-full p-4`}>
-        <Tabs
-          defaultActiveKey="1"
-          type="card"
-          size="large"
-          tabBarStyle={{}}
-          items={items}
-        />
-      </div>
+      {items && (
+        <div
+          className={`${
+            width > height ? "w-[60%]" : "w-screen flex-1"
+          } flex flex-col`}
+        >
+          <div
+            className={`${
+              width < height ? "flex-1" : "min-h-[55%]"
+            } m-3 p-4 bg-[#bfd2d8] border-2 border-gray-500 rounded-3xl`}
+          >
+            <Tabs
+              defaultActiveKey="0"
+              type="card"
+              size="large"
+              tabBarStyle={{}}
+              items={items}
+            />
+          </div>
+        </div>
+      )}
     </ConfigProvider>
   );
 };
