@@ -19,7 +19,7 @@
     "axios": "1.7.9",
     "file-saver": "2.0.5",
     "merge-images": "2.0.0",
-    "overlayscrollbars": "2.10.1",
+    "overlayscrollbars": "2.11.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "save": "2.9.0"
