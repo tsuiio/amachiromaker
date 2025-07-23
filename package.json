@@ -16,7 +16,7 @@
   "dependencies": {
     "ag-psd": "28.0.0",
     "antd": "5.24.7",
-    "axios": "1.8.4",
+    "axios": "1.11.0",
     "file-saver": "2.0.5",
     "merge-images": "2.0.0",
     "overlayscrollbars": "2.11.1",
