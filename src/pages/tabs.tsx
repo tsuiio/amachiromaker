@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ConfigProvider, Tabs } from "antd";
-import consts from "@/utils/consts";
 import { Layer, LayerImage } from "@/types";
 import useWindowDimensions from "@/utils/hooks";
 
@@ -66,7 +65,7 @@ const Ctabs = ({ orderedLayers, layerComb, setLayerComb }: CtabsProps) => {
       <img
         className="rounded-lg max-w-none max-h-none"
         width={tabImageDimension}
-        src={`${consts.CDN_PREFIX}${layer.thumbUrl}`}
+        src={`${layer.thumbUrl}`}
         alt=""
       />
     ),
@@ -99,7 +98,7 @@ const Ctabs = ({ orderedLayers, layerComb, setLayerComb }: CtabsProps) => {
                }
                  max-w-none
               `}
-              src={`${consts.CDN_PREFIX}${item.thumbUrl}`}
+              src={`${item.thumbUrl}`}
               width={itemImageDimension}
               height={itemImageDimension}
               onClick={() => {
