@@ -6,7 +6,7 @@ import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const cdnPrefix = "cdn.picrew.me/app/image_maker/";
+const cdnPrefix = "/app/image_maker/";
 
 const cfList = JSON.parse(
   fs.readFileSync(path.join(__dirname, "data", "cfList.json"), {

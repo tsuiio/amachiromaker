@@ -10,7 +10,6 @@ import useWindowDimensions from "@/utils/hooks";
 import { Psd } from "ag-psd";
 import services from "@/utils/services";
 import { Layer, LayerImage } from "@/types";
-import consts from "@/utils/consts";
 import mergeImages from "merge-images";
 
 interface NekoProps {
@@ -60,7 +59,7 @@ const Neko = ({
                 ctx.drawImage(image, 0, 0);
                 resolve("resolved");
               };
-              image.src = `${consts.CDN_PREFIX}${url}`;
+              image.src = `${url}`;
             });
           };
 
@@ -136,7 +135,7 @@ const Neko = ({
       layerComb
         ?.filter((i) => i.url)
         ?.map((i) => ({
-          src: `${consts.CDN_PREFIX}${i.url}`,
+          src: `${i.url}`,
           x: i.x,
           y: i.y,
         })) || [];
