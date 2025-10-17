@@ -36,7 +36,7 @@
     "autoprefixer": "10.4.21",
     "eslint": "9.36.0",
     "eslint-plugin-react-hooks": "5.2.0",
-    "eslint-plugin-react-refresh": "0.4.21",
+    "eslint-plugin-react-refresh": "0.4.24",
     "globals": "16.4.0",
     "p-queue": "8.1.1",
     "postcss": "8.5.6",
