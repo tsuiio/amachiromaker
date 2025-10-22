@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "ag-psd": "28.3.1",
-    "antd": "5.27.4",
+    "antd": "5.27.6",
     "axios": "1.12.2",
     "file-saver": "2.0.5",
     "merge-images": "2.0.0",
